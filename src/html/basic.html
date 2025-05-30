@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML 语法大全</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+
+      header {
+        background: linear-gradient(90deg, #00416a, #799f0c, #00416a);
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+        border-bottom: 5px solid #ff7e5f;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .subtitle {
+        font-size: 1.4rem;
+        opacity: 0.9;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .content {
+        display: flex;
+        padding: 30px;
+        gap: 30px;
+      }
+
+      .syntax-table {
+        flex: 3;
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .examples {
+        flex: 2;
+        background: #e9ecef;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #00416a;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #ff7e5f;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      th {
+        background-color: #00416a;
+        color: white;
+        font-weight: 600;
+      }
+
+      tr:nth-child(even) {
+        background-color: #e9ecef;
+      }
+
+      tr:hover {
+        background-color: #d8e2dc;
+      }
+
+      .example-box {
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .example-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #00416a;
+      }
+
+      .example-code {
+        background: #2d3748;
+        color: #e2e8f0;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: 'Courier New', monospace;
+        overflow-x: auto;
+        margin-bottom: 15px;
+      }
+
+      .example-preview {
+        padding: 15px;
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+      }
+
+      .note {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 5px 5px 0;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: #00416a;
+        color: white;
+        font-size: 1.1rem;
+      }
+
+      @media (max-width: 768px) {
+        .content {
+          flex-direction: column;
+        }
+
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        .subtitle {
+          font-size: 1.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>HTML 语法大全</h1>
+        <p class="subtitle">全面回顾 HTML 的各种语法元素，包含详细说明和实用示例</p>
+      </header>
+
+      <div class="content">
+        <div class="syntax-table">
+          <h2>HTML 语法元素参考表</h2>
+
+          <table>
+            <thead>
+              <tr>
+                <th>语法类别</th>
+                <th>语法元素</th>
+                <th>说明</th>
+                <th>示例</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="4"><strong>文档结构</strong></td>
+                <td><code>&lt;!DOCTYPE&gt;</code></td>
+                <td>定义文档类型</td>
+                <td><code>&lt;!DOCTYPE html&gt;</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;html&gt;</code></td>
+                <td>HTML 文档根元素</td>
+                <td><code>&lt;html lang="en"&gt;</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;head&gt;</code></td>
+                <td>包含元数据</td>
+                <td><code>&lt;head&gt;&lt;title&gt;Page Title&lt;/title&gt;&lt;/head&gt;</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;body&gt;</code></td>
+                <td>包含可见内容</td>
+                <td><code>&lt;body&gt;&lt;h1&gt;Hello World&lt;/h1&gt;&lt;/body&gt;</code></td>
+              </tr>
+
+              <tr>
+                <td rowspan="6"><strong>文本元素</strong></td>
+                <td><code>&lt;h1&gt;-&lt;h6&gt;</code></td>
+                <td>标题元素</td>
+                <td><code>&lt;h1&gt;Main Heading&lt;/h1&gt;</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;p&gt;</code></td>
+                <td>段落</td>
+                <td><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;br&gt;</code></td>
+                <td>换行</td>
+                <td><code>Line 1&lt;br&gt;Line 2</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;hr&gt;</code></td>
+                <td>水平分隔线</td>
+                <td><code>&lt;hr&gt;</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;pre&gt;</code></td>
+                <td>预格式化文本</td>
+                <td><code>&lt;pre&gt;Text with spaces&lt;/pre&gt;</code></td>
+              </tr>
+
+              <tr>
+                <td rowspan="6"><strong>格式化</strong></td>
+                <td><code>&lt;b&gt;</code></td>
+                <td>粗体文本</td>
+                <td><code>&lt;b&gt;Bold text&lt;/b&gt;</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;i&gt;</code></td>
+                <td>斜体文本</td>
+                <td><code>&lt;i&gt;Italic text&lt;/i&gt;</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;u&gt;</code></td>
+                <td>下划线文本</td>
+                <td><code>&lt;u&gt;Underlined text&lt;/u&gt;</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;strong&gt;</code></td>
+                <td>重要文本</td>
+                <td><code>&lt;strong&gt;Important!&lt;/strong&gt;</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;em&gt;</code></td>
+                <td>强调文本</td>
+                <td><code>&lt;em&gt;Emphasized text&lt;/em&gt;</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;mark&gt;</code></td>
+                <td>标记文本</td>
+                <td><code>&lt;mark&gt;Highlighted&lt;/mark&gt;</code></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="note">
+            <strong>注意：</strong> 这只是部分 HTML
+            语法元素示例。完整的参考表包含在页面右侧的示例区域中。
+          </div>
+        </div>
+
+        <div class="examples">
+          <h2>HTML 元素示例</h2>
+
+          <div class="example-box">
+            <div class="example-title">文档结构示例</div>
+            <div class="example-code">
+              &lt;!DOCTYPE html&gt; &lt;html lang="zh-CN"&gt; &lt;head&gt; &lt;meta
+              charset="UTF-8"&gt; &lt;title&gt;页面标题&lt;/title&gt; &lt;/head&gt; &lt;body&gt;
+              &lt;h1&gt;欢迎来到我的网站&lt;/h1&gt; &lt;p&gt;这是一个简单的HTML页面示例。&lt;/p&gt;
+              &lt;/body&gt; &lt;/html&gt;
+            </div>
+          </div>
+
+          <div class="example-box">
+            <div class="example-title">文本格式化示例</div>
+            <div class="example-code">
+              &lt;h1&gt;主标题&lt;/h1&gt; &lt;h2&gt;副标题&lt;/h2&gt;
+              &lt;p&gt;这是一个&lt;strong&gt;重要&lt;/strong&gt;的段落。&lt;/p&gt;
+              &lt;p&gt;这是&lt;em&gt;强调&lt;/em&gt;的文本。&lt;/p&gt;
+              &lt;p&gt;&lt;u&gt;下划线文本&lt;/u&gt;和&lt;mark&gt;标记文本&lt;/mark&gt;&lt;/p&gt;
+              &lt;hr&gt; &lt;p&gt;第一行&lt;br&gt;第二行&lt;/p&gt;
+            </div>
+            <div class="example-preview">
+              <h3>预览效果</h3>
+              <h1>主标题</h1>
+              <h2>副标题</h2>
+              <p>这是一个<strong>重要</strong>的段落。</p>
+              <p>这是<em>强调</em>的文本。</p>
+              <p><u>下划线文本</u>和<mark>标记文本</mark></p>
+              <hr />
+              <p>第一行<br />第二行</p>
+            </div>
+          </div>
+
+          <div class="example-box">
+            <div class="example-title">列表示例</div>
+            <div class="example-code">
+              &lt;!-- 无序列表 --&gt; &lt;ul&gt; &lt;li&gt;项目一&lt;/li&gt;
+              &lt;li&gt;项目二&lt;/li&gt; &lt;/ul&gt; &lt;!-- 有序列表 --&gt; &lt;ol&gt;
+              &lt;li&gt;第一步&lt;/li&gt; &lt;li&gt;第二步&lt;/li&gt; &lt;/ol&gt; &lt;!-- 描述列表
+              --&gt; &lt;dl&gt; &lt;dt&gt;HTML&lt;/dt&gt; &lt;dd&gt;超文本标记语言&lt;/dd&gt;
+              &lt;dt&gt;CSS&lt;/dt&gt; &lt;dd&gt;层叠样式表&lt;/dd&gt; &lt;/dl&gt;
+            </div>
+          </div>
+
+          <div class="example-box">
+            <div class="example-title">链接与图像</div>
+            <div class="example-code">
+              &lt;!-- 超链接 --&gt; &lt;a href="https://example.com"
+              target="_blank"&gt;访问示例网站&lt;/a&gt; &lt;!-- 图像 --&gt; &lt;img src="image.jpg"
+              alt="风景图片" width="300"&gt; &lt;!-- 页面锚点 --&gt; &lt;a
+              href="#section1"&gt;跳转到第一部分&lt;/a&gt; &lt;h2
+              id="section1"&gt;第一部分&lt;/h2&gt;
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p>HTML 语法大全 &copy; 2023 - 完整参考指南</p>
+      </footer>
+    </div>
+  </body>
+</html>
