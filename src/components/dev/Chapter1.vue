@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted, reactive, computed } from 'vue'
+import BtnCommon from '../common/BtnCommon.vue'
+import DocumentationIcon from '../icons/IconDocumentation.vue'
+
 //e.g1：ref
 const count = ref(0)
 const defaultCount = ref(-1)
@@ -67,29 +70,82 @@ const canWriteComputed = computed({
   },
 })
 canWriteComputed.value = 1
+
+const isActive = computed(() => {
+  return canWrite.value > 0
+})
+
+//e.g5：input
+const message = ref('')
+const messageArea = ref('')
+const picked = ref('')
+const checkedNames = ref([])
+const selected = ref('')
+const options = ref([
+  { text: 'One', value: 'A' },
+  { text: 'Two', value: 'B' },
+  { text: 'Three', value: 'C' },
+])
 </script>
 
 <template>
   <button @click="increment">count is: {{ count }}</button>
   <button @click="reset">reset</button>
-
+  <BtnCommon>
+    <template #icon>
+      <DocumentationIcon />
+    </template>
+    <template #title> Select </template>
+  </BtnCommon>
   <div id="bookshelf">
     <input type="text" v-model="newBookName" />
-    <span>{{ showBookShelf }}</span>
+    <span>{{ bookshelf.books.length }}{{ showBookShelf }}</span>
     <button @click="addBook()">添加书本</button>
     <button @click="removeBook()">移除书本</button>
     <div v-for="book in bookshelf.books">
       {{ book.name }}
     </div>
   </div>
+
+  <div :class="{ active: isActive }">Shoul I show?</div>
+
+  <div class="input">
+    <input type="text" v-model="message" placeholder="add single line" />
+    <p>Message is {{ message }}</p>
+    <textarea v-model="messageArea" placeholder="add multiple lines"></textarea>
+    <p style="white-space: pre-line">MessageArea is {{ messageArea }}</p>
+
+    <p>Select is {{ picked }}</p>
+    <input type="radio" id="one" value="One" v-model="picked" />
+    <label for="one">One</label>
+    <input type="radio" id="two" value="Two" v-model="picked" />
+    <label for="two">Two</label>
+
+    <div>
+      Checked names:
+      <li v-for="name in checkedNames">{{ name }}</li>
+    </div>
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
+    <label for="jack">Jack</label>
+    <input type="checkbox" id="john" value="John" v-model="checkedNames" />
+    <label for="john">John</label>
+    <input type="checkbox" id="mike" value="Mike" v-model="checkedNames" />
+    <label for="mike">Mike</label>
+    <div>Selected: {{ selected }}</div>
+    <select v-model="selected" multiple>
+      <option disabled value="">Please select one</option>
+      <option v-for="option in options" :value="option.value">
+        {{ option.text }}
+      </option>
+    </select>
+  </div>
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+button {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
 }
 </style>
