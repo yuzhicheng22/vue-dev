@@ -30,21 +30,16 @@ function delay(ms: number) {
 // 用来理解await
 async function animateElement() {
   state.value = false
-  console.log('state', state.value)
   await delay(3000)
   state.value = true
-  console.log('state', state.value)
   await delay(3000)
   state.value = false
-  console.log('state', state.value)
 }
 
 function onBtnClick() {
   isRun.value = true
-  console.log('isRun', isRun.value)
   animateElement()
   isRun.value = false
-  console.log('isRun', isRun.value)
 }
 </script>
 
